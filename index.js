@@ -3,7 +3,7 @@ const loaderEl = document.getElementById("js-preloader");
 const loadMoreGamesBtn = document.querySelector(".main-button")
 let nextGameListUrl = null;
 
-const url = `https://api.rawg.io/api/games?key=${APIKEY}&dates=1988-01-01,1988-12-31`
+const url = `https://api.rawg.io/api/games?key=${APIKEY}&dates=2024-12-01,2024-12-31`
 
 const getPlatformStr = (platforms) => {
     const platformStr = platforms.map(pl => pl.platform.name).join(", ");
@@ -28,7 +28,7 @@ function loadGames(url){
                 <div class="col">
                         <div class="item">
                         <img class="img" src="${game.background_image}" alt="${game.name} image">
-                            <h4 class="game-name">${game.name}<br><span class="platforms">${getPlatformStr(game.parent_platforms)}</span></h4>
+                            <h4 class="game-name">Name:${game.name}</h4><span class="platforms">Platforms:${getPlatformStr(game.parent_platforms)}</span>
                             <ul>
                             <li><i class="fa fa-star"></i> <span class="rating">${game.rating}</span></li>
                                 <li><i class="fa-regular fa-calendar"></i> <span class="date">${game.released}</span></li>
