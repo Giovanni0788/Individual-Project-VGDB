@@ -1,6 +1,7 @@
 const gameList = document.querySelector(".gameList");
-const loaderEl = document.getElementById("js-preloader");
+const loaderEl = document.getElementById('js-preloader');
 const loadMoreGamesBtn = document.querySelector(".main-button");
+const gameSearch = document.querySelector('search');
 
 let nextGameListUrl = null;
 
@@ -60,3 +61,44 @@ loadMoreGamesBtn.addEventListener("click", ()=>{
         loadGames(nextGameListUrl);
     }
 })
+// search games
+gameSearch.addEventListener('input', (e) => {
+    const searchString = e.target.value.toLowerCase();
+
+    const filteredGames= gameResults.filter((loaderEl) => {
+        return (
+          loaderEl.strGame.toLowerCase().includes(searchString)
+        );
+    });
+    displayGameResults(filteredGames);
+});
+
+
+const loadGameResults = () => {
+    try {
+        const res =  fetch(url&gameSearch)
+        .then(res => {return res.json()});
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+const  displayGameResults = (results) => {
+    const htmlString = results
+    .map((loaderEl) => {
+            return `<div class="col">
+            <div class="item">
+            <img class="img" src="${game.background_image}" alt="${game.name} image">
+                <h4 class="game-name">Name: ${game.name}</h4><span class="platforms">Platforms: ${getPlatformStr(game.parent_platforms)}</span>
+                <ul>
+                <li><i class="fa fa-star"></i> <span class="rating">${game.rating}</span></li>
+                    <li><i class="fa-regular fa-calendar"></i> <span class="date">${game.released}</span></li>
+                    </ul>
+            </div>
+            </div>`
+        })
+        .join('');
+        loaderEl.innerHTML = htmlString;
+};
+
+loadGameResults();
