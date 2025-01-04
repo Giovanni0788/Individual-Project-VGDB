@@ -16,8 +16,9 @@ body {
 }
 
 h1 {
-    color: red;
+    color: white;
     text-align: center;
+    font-size: 20px;
 }
 
 h4 {
@@ -63,4 +64,52 @@ li {
     max-height:210px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     border-radius: 10px;
+  }
+  .search--button {
+    background-color: white;
+    width: 38px;
+  }
+
+  .heading-section {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    padding: 10px 0;
+    background-color: rgba(32, 32, 32, 0.979);
+  }
+
+  .search {
+    margin-left: 70px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-style: none;
+    width:676px;
+    padding-left: 4px;
+    font-size: 18px;
+    height: 32px;
+  }
+
+  .search--button {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-color: white;
+    width: 38px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: gray;
+    height: 32px;
+  }
+ .main-button {
+  display: flex;
+  justify-content:center;
+padding: 20px 0; }
+
+  .more {
+background-color: black;
+color: white;
+padding: 12px 30px;
+border-radius: 20px;
+text-decoration: none;
   }
