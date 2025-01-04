@@ -49,25 +49,26 @@ li {
     display: flex;
     flex-direction: column;
     width: 300px;
-    height: 300px;
+    height: 260px;
     background-color: #fff;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin: 10px;
     transition: 0.3s;
     cursor: pointer;
     border-radius: 10px;
-    
   }
 
   .img {
     width: 100%;
-    max-height:210px;
+   height: 150px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    border-radius: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    object-fit:cover;
+    object-position: center;
   }
   .search--button {
     background-color: white;
-    width: 38px;
   }
 
   .heading-section {
