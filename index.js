@@ -5,7 +5,7 @@ const gameSearch = document.querySelector(".search");
 
 let nextGameListUrl = null;
 
-const url = `https://api.rawg.io/api/games?key=${APIKEY}&ordering=-released&dates=1970-01-01,2025-01-01`
+const url = `https://api.rawg.io/api/games?key=${APIKEY}&ordering=released&dates=1980-01-01,2025-01-01`
 
 const getPlatformStr = (platforms) => {
     const platformStr = platforms.map(pl => pl.platform.name).join(", ");
@@ -66,7 +66,7 @@ if (gameSearch) {
     gameSearch.addEventListener('input', (e) => {
         const searchString = e.target.value.toLowerCase();
         gameList.innerHTML = '';  
-        const searchUrl = `https://api.rawg.io/api/games?key=${APIKEY}&search=${searchString}&ordering=-released`;
+        const searchUrl = `https://api.rawg.io/api/games?key=${APIKEY}&search=${searchString}&ordering=released&dates=1980-01-01,2025-01-01`;
         loadGames(searchUrl);
     });
 }
