@@ -1,7 +1,7 @@
 const gameList = document.querySelector(".gameList");
 const loaderEl = document.getElementById('js-preloader');
 const loadMoreGamesBtn = document.querySelector(".main-button");
-const gameSearch = document.querySelector('search');
+const gameSearch = document.querySelector(".search");
 
 let nextGameListUrl = null;
 
@@ -62,16 +62,14 @@ loadMoreGamesBtn.addEventListener("click", ()=>{
     }
 })
 // search games
-gameSearch.addEventListener('input', (e) => {
-    const searchString = e.target.value.toLowerCase();
-
-    const filteredGames= gameResults.filter((loaderEl) => {
-        return (
-          loaderEl.strGame.toLowerCase().includes(searchString)
-        );
+if (gameSearch) {
+    gameSearch.addEventListener('input', (e) => {
+        const searchString = e.target.value.toLowerCase();
+        gameList.innerHTML = '';  
+        const searchUrl = `https://api.rawg.io/api/games?key=${APIKEY}&search=${searchString}&ordering=-released`;
+        loadGames(searchUrl);
     });
-    displayGameResults(filteredGames);
-});
+}
 
 
 const loadGameResults = () => {
