@@ -112,3 +112,12 @@ text-decoration: none;
   .GGDB {
     width: 5%;
   }
+
+  .select--p {
+    padding: 0 5px 0 20px;
+    color: yellow;
+  }
+
+  .select--container {
+    display: flex;
+  }

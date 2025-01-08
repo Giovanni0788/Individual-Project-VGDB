@@ -2,7 +2,7 @@ const gameList = document.querySelector(".gameList");
 const loaderEl = document.getElementById('js-preloader');
 const loadMoreGamesBtn = document.querySelector(".main-button");
 const gameSearch = document.querySelector(".search");
-
+const gameSort = document.querySelector(".select--box");
 let nextGameListUrl = null;
 
 const url = `https://api.rawg.io/api/games?key=${APIKEY}&ordering=released&dates=1980-01-01,2025-01-01`
@@ -71,16 +71,6 @@ if (gameSearch) {
     });
 }
 
-
-const loadGameResults = () => {
-    try {
-        const res =  fetch(url&gameSearch)
-        .then(res => {return res.json()});
-    } catch (err) {
-        console.error(err);
-    }
-};
-
 const  displayGameResults = (results) => {
     const htmlString = results
     .map((loaderEl) => {
@@ -99,4 +89,12 @@ const  displayGameResults = (results) => {
         loaderEl.innerHTML = htmlString;
 };
 
-loadGameResults();
+// sort games
+if (gameSort) {
+    gameSort.addEventListener('input', (e) => {
+        const sortString = e.target.value.toLowerCase();
+        gameList.innerHTML = '';  
+        const searchUrl = `https://api.rawg.io/api/games?key=${APIKEY}&ordering=${sortString}`;
+        loadGames(searchUrl);
+    });
+}
